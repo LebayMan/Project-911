@@ -1,30 +1,36 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BirdController : MonoBehaviour
 {
-    public Slider distanceSlider; // Slider to simulate ultrasonic distance (in cm)
-    public float minDistance = 0f;    // Closest hand (e.g., 0 cm)
-    public float maxDistance = 30f;   // Farthest hand (e.g., 30 cm)
+    public float minDistance = 0f;    // Closest (cm)
+    public float maxDistance = 30f;   // Farthest (cm)
 
-    public float minY = -300f;  // Lowest Y position on UI (bottom of canvas)
-    public float maxY = 300f;   // Highest Y position on UI (top of canvas)
+    public float minY = -300f;        // Bottom Y (canvas space)
+    public float maxY = 300f;         // Top Y (canvas space)
+
+    public float smoothSpeed = 5f;    // Higher = faster smoothing
 
     private RectTransform rectTransform;
+    private Vector2 currentPosition;
 
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        currentPosition = rectTransform.anchoredPosition;
     }
 
     void Update()
     {
-        // Convert slider value to vertical position
-        float normalized = Mathf.InverseLerp(minDistance, maxDistance, distanceSlider.value);
-        float targetY = Mathf.Lerp(minY, maxY, 1 - normalized); // Invert: closer = higher
+        float distance = SerialReader.distanceCm;
 
-        Vector2 anchoredPos = rectTransform.anchoredPosition;
-        anchoredPos.y = targetY;
-        rectTransform.anchoredPosition = anchoredPos;
+        // Normalize and invert distance (closer = higher)
+        float normalized = Mathf.InverseLerp(minDistance, maxDistance, distance);
+        float targetY = Mathf.Lerp(minY, maxY, 1 - normalized);
+
+        // Smoothly move current Y toward targetY
+        currentPosition.y = Mathf.Lerp(currentPosition.y, targetY, Time.deltaTime * smoothSpeed);
+
+        // Apply position
+        rectTransform.anchoredPosition = currentPosition;
     }
 }
