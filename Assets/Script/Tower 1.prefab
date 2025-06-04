@@ -29,15 +29,15 @@ RectTransform:
   m_GameObject: {fileID: 2615115344533106708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1879103, y: 13.971878, z: 3.0684}
+  m_LocalScale: {x: 0.79223436, y: 13.068313, z: 3.0684}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9123672997071699137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 410}
-  m_SizeDelta: {x: 96.2177, y: 100}
+  m_AnchoredPosition: {x: 0, y: 400}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8815519943424350944
 CanvasRenderer:
@@ -265,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9123672997071699137}
   m_Layer: 5
-  m_Name: Tower
+  m_Name: Tower 1
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.500122, y: 632}
+  m_AnchoredPosition: {x: 2.500122, y: 375}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &318407822416382285

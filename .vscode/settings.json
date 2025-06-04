@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Project-pesawat.sln"
+    "dotnet.defaultSolution": "Project-911.sln"
 }
