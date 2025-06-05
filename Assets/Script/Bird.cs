@@ -10,6 +10,7 @@ public class Bird : MonoBehaviour
             Destroy(gameObject); // Destroy the bird when it hits the tower
             pesawat.SetActive(true); // Deactivate the plane
             Time.timeScale = 0f; // Stop the game
+            SerialReader.instance.Mati();
         }
     }
 }

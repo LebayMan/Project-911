@@ -3,7 +3,7 @@ using TMPro; // If you're using TextMeshPro
 
 public class GameMaster : MonoBehaviour
 {
-    public static GameMaster Instance;
+    public static GameMaster Instances;
 
     public int score = 0;
     public TextMeshProUGUI scoreText; // Assign in Inspector
@@ -11,9 +11,9 @@ public class GameMaster : MonoBehaviour
     void Awake()
     {
         // Singleton pattern to allow global access
-        if (Instance == null)
+        if (Instances == null)
         {
-            Instance = this;
+            Instances = this;
             DontDestroyOnLoad(gameObject); // Optional: persist between scenes
         }
         else

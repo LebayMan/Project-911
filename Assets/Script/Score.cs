@@ -10,7 +10,9 @@ public class Score : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Add score");
-            GameMaster.Instance.AddScore(1);
+            GameMaster.Instances.AddScore(1);
+            SerialReader.instance.Score();
+            SerialReader.instance.Reset();
         }
     }
 }
